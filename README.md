@@ -22,20 +22,26 @@ Additionally, this backend integrates **LLM-powered analytics**, which analyze y
 ### Step 1: Clone the Repository
 
 ```bash
+
 git clone https://github.com/your-username/budget-tracker-backend.git
 cd budget-tracker-backend
+
+```
 
 Step 2: Run the Application
 
 Make sure you have Java 21+ and Maven installed.
 
+```bash
+
 mvn spring-boot:run
 
+```
 
 The server will start at:
-
+```bash
 http://localhost:8080
-
+```
 🧪 Test the APIs with Postman
 
 You can use the following steps to test all APIs using Postman:
@@ -43,41 +49,45 @@ You can use the following steps to test all APIs using Postman:
 🧍 Step 1: Signup
 
 API Endpoint:
+```bash
 POST http://localhost:8080/auth/signup
-
+```
 Sample Request Body:
-
+```bash
 {
     "name": "user",
     "email": "user@1234",
     "password": "123456789"
 }
-
+```
 
 This will create a new user in the system.
 
 🔑 Step 2: Login
 
 API Endpoint:
+```bash
 POST http://localhost:8080/auth/login
-
+```
 Sample Request Body:
-
+```bash
 {
     "email": "ankitsingh@1234",
     "password": "12345678"
 }
-
+```
 
 On successful login, you’ll receive a JWT Token which will be used to authenticate all subsequent requests.
+use the JWT token as bearer token and paste in the token field
 
 💸 Step 3: Add a Transaction
 
 API Endpoint:
+```bash
 POST http://localhost:8080/api/transactions
-
+```
 Sample Request Body:
-
+```bash
 {
     "title": "Groceries",
     "description": "Bought Masala",
@@ -85,17 +95,18 @@ Sample Request Body:
     "category": "Food",
     "date": "2025-05-18"
 }
-
+```
 
 This will save the transaction details in the database.
 
 ✏️ Step 4: Update a Transaction
 
 API Endpoint:
+```bash
 PUT http://localhost:8080/api/{transactionId}
-
+```
 Sample Request Body:
-
+```bash
 {
     "title": "Groceries",
     "description": "Bought Masala",
@@ -103,15 +114,16 @@ Sample Request Body:
     "category": "Food",
     "date": "2025-05-18"
 }
-
+```
 
 Replace {transactionId} with the actual ID of the transaction you want to update.
 
 ❌ Step 5: Delete a Transaction
 
 API Endpoint:
+```bash
 DELETE http://localhost:8080/api/{transactionId}
-
+```
 This will remove the transaction from the database.
 
 🧠 AI-Powered Insights
@@ -123,6 +135,15 @@ Category-wise expense summaries
 Spending trends over time
 
 Personalized suggestions for saving more effectively
+
+⚙️ Note:
+AI insights are not included in this Spring Boot project.
+They are handled externally using a Python-based LLM service.
+To use AI insights, you must:
+
+Download and run the LLM model and related Python scripts (provided separately).
+
+Connect this Spring Boot backend to that Python API for AI-powered analysis.ly
 
 🛠️ Tech Stack
 
